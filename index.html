@@ -1,0 +1,2177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Ardigo Transportes | Eficiência na Estrada
+</title>
+
+
+<style>
+
+/* =====================================================
+                     CONFIGURAÇÕES
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    background:#f4f6f8;
+
+    color:#17202a;
+}
+
+.hidden{
+    display:none !important;
+}
+
+
+/* =====================================================
+                       LOGIN
+===================================================== */
+
+#loginPage{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+
+    linear-gradient(
+        rgba(17,24,39,.88),
+        rgba(17,24,39,.88)
+    ),
+
+    url("https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1600&q=80")
+
+    center/cover;
+}
+
+
+.login-box{
+
+    background:white;
+
+    width:100%;
+
+    max-width:430px;
+
+    padding:40px;
+
+    border-radius:16px;
+
+    box-shadow:
+    0 20px 50px
+    rgba(0,0,0,.35);
+}
+
+
+.logo-login{
+
+    text-align:center;
+
+    margin-bottom:30px;
+}
+
+
+.logo-login h1{
+
+    color:#111827;
+
+}
+
+
+.logo-login span{
+
+    color:#e3a600;
+
+}
+
+
+.logo-login p{
+
+    margin-top:8px;
+
+    color:#667085;
+
+}
+
+
+.login-error{
+
+    display:none;
+
+    background:#ffebee;
+
+    color:#c62828;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    margin-bottom:15px;
+}
+
+
+label{
+
+    display:block;
+
+    font-weight:bold;
+
+    margin-top:10px;
+}
+
+
+input,
+select{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:7px;
+
+    margin-bottom:15px;
+
+    border:
+    1px solid #d0d5dd;
+
+    border-radius:8px;
+
+    font-size:15px;
+}
+
+
+.btn{
+
+    border:none;
+
+    background:#f5b400;
+
+    color:#111827;
+
+    padding:13px 20px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+
+.btn:hover{
+
+    opacity:.9;
+
+}
+
+
+.login-btn{
+
+    width:100%;
+
+    margin-top:5px;
+}
+
+
+.demo{
+
+    margin-top:20px;
+
+    padding:14px;
+
+    background:#f4f6f8;
+
+    border-radius:8px;
+
+    font-size:13px;
+
+    color:#667085;
+}
+
+
+/* =====================================================
+                       HEADER
+===================================================== */
+
+header{
+
+    background:#111827;
+
+    color:white;
+
+    padding:
+    17px 7%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+
+.logo{
+
+    font-size:21px;
+
+    font-weight:bold;
+}
+
+
+.logo span{
+
+    color:#f5b400;
+}
+
+
+.logout{
+
+    background:#263244;
+
+    border:
+    1px solid #64748b;
+
+    color:white;
+
+    padding:
+    9px 17px;
+
+    border-radius:7px;
+
+    cursor:pointer;
+}
+
+
+/* =====================================================
+                    CABEÇALHO DO PAINEL
+===================================================== */
+
+.panel-top{
+
+    background:#111827;
+
+    color:white;
+
+    padding:
+    45px 7%;
+}
+
+
+.panel-top h1{
+
+    font-size:36px;
+
+    margin-bottom:10px;
+}
+
+
+.panel-top p{
+
+    color:#cbd5e1;
+
+    max-width:700px;
+
+    line-height:1.6;
+}
+
+
+.badge{
+
+    display:inline-block;
+
+    background:#f5b400;
+
+    color:#111827;
+
+    padding:
+    6px 12px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+}
+
+
+/* =====================================================
+                       SEÇÕES
+===================================================== */
+
+section{
+
+    padding:
+    50px 7%;
+}
+
+
+.title{
+
+    text-align:center;
+
+    margin-bottom:30px;
+}
+
+
+.title h2{
+
+    font-size:30px;
+
+    margin-bottom:8px;
+}
+
+
+.title p{
+
+    color:#667085;
+}
+
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(
+        auto-fit,
+        minmax(220px,1fr)
+    );
+
+    gap:20px;
+}
+
+
+.card{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:14px;
+
+    box-shadow:
+    0 5px 20px
+    rgba(0,0,0,.07);
+}
+
+
+.card h3{
+
+    margin-bottom:12px;
+}
+
+
+.card p{
+
+    color:#667085;
+
+    line-height:1.5;
+}
+
+
+.number{
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    color:#d99d00;
+
+    margin:10px 0;
+}
+
+
+/* =====================================================
+                       TABELAS
+===================================================== */
+
+.table-container{
+
+    overflow-x:auto;
+}
+
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:12px;
+
+    overflow:hidden;
+}
+
+
+th,
+td{
+
+    padding:14px;
+
+    text-align:left;
+
+    border-bottom:
+    1px solid #eee;
+}
+
+
+th{
+
+    background:#111827;
+
+    color:white;
+}
+
+
+.status{
+
+    display:inline-block;
+
+    padding:
+    6px 10px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    background:#e8f7ed;
+
+    color:#16803c;
+}
+
+
+.status.warning{
+
+    background:#fff3cd;
+
+    color:#8a6500;
+}
+
+
+/* =====================================================
+                         RFID
+===================================================== */
+
+.rfid{
+
+    display:inline-block;
+
+    background:#f5b400;
+
+    color:#111827;
+
+    padding:
+    7px 12px;
+
+    border-radius:7px;
+
+    font-weight:bold;
+
+    margin-top:7px;
+}
+
+
+/* =====================================================
+                       PROGRESSO
+===================================================== */
+
+.progress{
+
+    width:100%;
+
+    height:10px;
+
+    background:#e5e7eb;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-top:12px;
+}
+
+
+.progress-bar{
+
+    height:100%;
+
+    background:#f5b400;
+}
+
+
+/* =====================================================
+                     AVISO DE SEGURANÇA
+===================================================== */
+
+.security{
+
+    background:#fff7df;
+
+    border:
+    1px solid #f0cf66;
+
+    padding:20px;
+
+    border-radius:10px;
+
+    margin-top:25px;
+}
+
+
+.security p{
+
+    margin-top:8px;
+
+    line-height:1.5;
+}
+
+
+/* =====================================================
+                         FORMULÁRIO
+===================================================== */
+
+.form{
+
+    background:white;
+
+    padding:30px;
+
+    max-width:600px;
+
+    margin:auto;
+
+    border-radius:14px;
+
+    box-shadow:
+    0 5px 20px
+    rgba(0,0,0,.07);
+}
+
+
+/* =====================================================
+                         FOOTER
+===================================================== */
+
+footer{
+
+    background:#111827;
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px;
+}
+
+
+footer p{
+
+    margin:5px;
+}
+
+
+/* =====================================================
+                       RESPONSIVO
+===================================================== */
+
+@media(max-width:700px){
+
+    .panel-top h1{
+
+        font-size:28px;
+    }
+
+
+    section{
+
+        padding:
+        40px 5%;
+    }
+
+
+    .login-box{
+
+        padding:
+        30px 25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+                         LOGIN
+===================================================== -->
+
+<div id="loginPage">
+
+
+    <div class="login-box">
+
+
+        <div class="logo-login">
+
+            <h1>
+                ARDIGO
+                <span>Transportes</span>
+            </h1>
+
+            <p>
+                Eficiência na Estrada
+            </p>
+
+        </div>
+
+
+        <div
+            id="loginError"
+            class="login-error"
+        >
+
+            Usuário ou senha incorretos.
+
+        </div>
+
+
+        <label>
+            Tipo de acesso
+        </label>
+
+
+        <select id="tipoUsuario">
+
+            <option value="admin">
+                Gestão / Administrador
+            </option>
+
+            <option value="motorista">
+                Motorista / Funcionário
+            </option>
+
+        </select>
+
+
+        <label>
+            Usuário
+        </label>
+
+
+        <input
+            type="text"
+            id="usuario"
+            placeholder="Digite seu usuário"
+        >
+
+
+        <label>
+            Senha
+        </label>
+
+
+        <input
+            type="password"
+            id="senha"
+            placeholder="Digite sua senha"
+        >
+
+
+        <button
+            class="btn login-btn"
+            onclick="login()"
+        >
+
+            Entrar no sistema
+
+        </button>
+
+
+        <div class="demo">
+
+            <strong>
+                Acessos demonstrativos
+            </strong>
+
+            <br><br>
+
+            👨‍💼 Gestão:
+            <b>admin</b> / <b>1234</b>
+
+            <br>
+
+            🔐 Administrador pessoal:
+            <b>anonimo</b> / <b>••••••••</b>
+
+            <br>
+
+            🚛 Motorista:
+            <b>motorista</b> / <b>1234</b>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+                    PAINEL DA GESTÃO
+===================================================== -->
+
+<div
+    id="adminPanel"
+    class="hidden"
+>
+
+
+<header>
+
+    <div class="logo">
+
+        ARDIGO
+        <span>Transportes</span>
+
+    </div>
+
+
+    <button
+        class="logout"
+        onclick="logout()"
+    >
+
+        Sair
+
+    </button>
+
+</header>
+
+
+<div class="panel-top">
+
+    <div class="badge">
+
+        GESTÃO / ADMINISTRADOR
+
+    </div>
+
+
+    <h1>
+
+        Painel de Gestão
+
+    </h1>
+
+
+    <p>
+
+        Acompanhe o desempenho da frota,
+        consumo de combustível, motoristas,
+        metas e identificação dos veículos.
+
+    </p>
+
+</div>
+
+
+
+<!-- VISÃO GERAL -->
+
+<section>
+
+
+<div class="title">
+
+    <h2>
+        Visão geral da frota
+    </h2>
+
+    <p>
+        Indicadores demonstrativos do sistema.
+    </p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+    <h3>
+        🚛 Caminhões
+    </h3>
+
+    <div class="number">
+        18
+    </div>
+
+    <p>
+        Veículos cadastrados.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h3>
+        👨‍✈️ Motoristas
+    </h3>
+
+    <div class="number">
+        22
+    </div>
+
+    <p>
+        Funcionários cadastrados.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h3>
+        ⛽ Média da frota
+    </h3>
+
+    <div class="number">
+        3,05 km/L
+    </div>
+
+    <p>
+        Média atual demonstrativa.
+    </p>
+
+</div>
+
+
+<div class="card">
+
+    <h3>
+        🎯 Meta
+    </h3>
+
+    <div class="number">
+        3,20 km/L
+    </div>
+
+    <p>
+        Meta de consumo.
+    </p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- DESEMPENHO DA FROTA -->
+
+<section>
+
+
+<div class="title">
+
+    <h2>
+        Desempenho da frota
+    </h2>
+
+    <p>
+        Compare o consumo dos veículos.
+    </p>
+
+</div>
+
+
+<div class="table-container">
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>
+    Caminhão
+</th>
+
+<th>
+    Motorista
+</th>
+
+<th>
+    RFID
+</th>
+
+<th>
+    Média
+</th>
+
+<th>
+    Meta
+</th>
+
+<th>
+    Status
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+
+<tr>
+
+<td>
+    ARD-001
+</td>
+
+<td>
+    Carlos
+</td>
+
+<td>
+    001-ARD
+</td>
+
+<td>
+    3,20 km/L
+</td>
+
+<td>
+    3,20 km/L
+</td>
+
+<td>
+
+<span class="status">
+    Meta atingida
+</span>
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+    ARD-014
+</td>
+
+<td>
+    João
+</td>
+
+<td>
+    014-ARD
+</td>
+
+<td>
+    3,05 km/L
+</td>
+
+<td>
+    3,20 km/L
+</td>
+
+<td>
+
+<span class="status">
+    Em evolução
+</span>
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+    ARD-021
+</td>
+
+<td>
+    Marcos
+</td>
+
+<td>
+    021-ARD
+</td>
+
+<td>
+    2,80 km/L
+</td>
+
+<td>
+    3,20 km/L
+</td>
+
+<td>
+
+<span class="status warning">
+    Atenção
+</span>
+
+</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+
+
+</div>
+
+</section>
+
+
+
+<!-- MOTORISTAS -->
+
+<section>
+
+
+<div class="title">
+
+<h2>
+    Acompanhamento dos motoristas
+</h2>
+
+<p>
+    Visualize o desempenho individual.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+    Carlos
+</h3>
+
+<p>
+    Caminhão: ARD-001
+</p>
+
+<p>
+    Média:
+    <strong>
+        3,20 km/L
+    </strong>
+</p>
+
+<br>
+
+<span class="status">
+    Meta atingida
+</span>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+    João
+</h3>
+
+<p>
+    Caminhão: ARD-014
+</p>
+
+<p>
+    Média:
+    <strong>
+        3,05 km/L
+    </strong>
+</p>
+
+<br>
+
+<span class="status">
+    Em evolução
+</span>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+    Marcos
+</h3>
+
+<p>
+    Caminhão: ARD-021
+</p>
+
+<p>
+    Média:
+    <strong>
+        2,80 km/L
+    </strong>
+</p>
+
+<br>
+
+<span class="status warning">
+    Atenção
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- RFID -->
+
+<section>
+
+
+<div class="title">
+
+<h2>
+    Identificação RFID
+</h2>
+
+<p>
+    Identificação dos veículos por etiquetas RFID.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+    ARD-001
+</h3>
+
+<p>
+    Identificação:
+</p>
+
+<span class="rfid">
+    RFID: 001-ARD
+</span>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+    ARD-014
+</h3>
+
+<p>
+    Identificação:
+</p>
+
+<span class="rfid">
+    RFID: 014-ARD
+</span>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+    ARD-021
+</h3>
+
+<p>
+    Identificação:
+</p>
+
+<span class="rfid">
+    RFID: 021-ARD
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ROTAS -->
+
+<section>
+
+
+<div class="title">
+
+<h2>
+    Rotas
+</h2>
+
+<p>
+    Informações demonstrativas da operação.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+    São Paulo → Angra dos Reis
+</h3>
+
+<p>
+    Distância:
+    <strong>
+        450 km
+    </strong>
+</p>
+
+<p>
+    Tempo estimado:
+    <strong>
+        6h20
+    </strong>
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+    Resende → Volta Redonda
+</h3>
+
+<p>
+    Distância:
+    <strong>
+        45 km
+    </strong>
+</p>
+
+<p>
+    Tempo estimado:
+    <strong>
+        1h
+    </strong>
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- RELATÓRIOS -->
+
+<section>
+
+
+<div class="title">
+
+<h2>
+    Relatórios
+</h2>
+
+<p>
+    Indicadores para acompanhamento da operação.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+    📈 Consumo
+</h3>
+
+<p>
+
+    Comparação das médias dos caminhões
+    ao longo do tempo.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+    💰 Economia
+</h3>
+
+<p>
+
+    Estimativa da economia de combustível
+    e custos operacionais.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+    🎯 Metas
+</h3>
+
+<p>
+
+    Acompanhamento dos veículos e motoristas
+    em relação às metas.
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+<p>
+    © 2026 Ardigo Transportes
+</p>
+
+<p>
+    Sistema demonstrativo do Projeto Integrador.
+</p>
+
+</footer>
+
+
+</div>
+
+
+
+<!-- =====================================================
+                   PAINEL DO MOTORISTA
+===================================================== -->
+
+<div
+    id="motoristaPanel"
+    class="hidden"
+>
+
+
+<header>
+
+<div class="logo">
+
+    ARDIGO
+    <span>
+        Transportes
+    </span>
+
+</div>
+
+
+<button
+    class="logout"
+    onclick="logout()"
+>
+
+    Sair
+
+</button>
+
+</header>
+
+
+<div class="panel-top">
+
+<div class="badge">
+
+    MOTORISTA / FUNCIONÁRIO
+
+</div>
+
+
+<h1>
+    Meu Painel
+</h1>
+
+
+<p>
+
+    Consulte seu desempenho,
+    seu veículo, sua rota e
+    informações de condução econômica.
+
+</p>
+
+</div>
+
+
+
+<!-- VEÍCULO -->
+
+<section>
+
+
+<div class="title">
+
+<h2>
+    Meu veículo
+</h2>
+
+<p>
+    Informações do veículo associado ao seu acesso.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+    🚛 Caminhão
+</h3>
+
+<div class="number">
+    ARD-014
+</div>
+
+<p>
+    Motorista responsável: João
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+    🪪 Identificação RFID
+</h3>
+
+<span class="rfid">
+    RFID: 014-ARD
+</span>
+
+<p style="margin-top:15px;">
+
+    Identificador demonstrativo do veículo.
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- DESEMPENHO -->
+
+<section>
+
+
+<div class="title">
+
+<h2>
+    Meu desempenho
+</h2>
+
+<p>
+    Acompanhe sua evolução de consumo.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+    ⛽ Minha média
+</h3>
+
+<div class="number">
+    3,05 km/L
+</div>
+
+<p>
+    Média atual demonstrativa.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+    🎯 Minha meta
+</h3>
+
+<div class="number">
+    3,20 km/L
+</div>
+
+<p>
+    Meta de consumo.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+    📈 Evolução
+</h3>
+
+<div class="number">
+    +8%
+</div>
+
+<p>
+    Evolução demonstrativa.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- PROGRESSO -->
+
+<section>
+
+
+<div class="title">
+
+<h2>
+    Progresso da meta
+</h2>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+    Meta de consumo
+</h3>
+
+
+<div class="progress">
+
+<div
+    class="progress-bar"
+    style="width:78%;"
+></div>
+
+</div>
+
+
+<p style="margin-top:15px;">
+
+<strong>
+    78%
+</strong>
+
+da meta alcançada.
+
+</p>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ABASTECIMENTO -->
+
+<section>
+
+
+<div class="title">
+
+<h2>
+    Registrar abastecimento
+</h2>
+
+<p>
+    Registre os dados do abastecimento realizado.
+</p>
+
+</div>
+
+
+<div class="form">
+
+
+<label>
+    Quilometragem atual
+</label>
+
+<input
+    type="number"
+    id="km"
+    placeholder="Ex: 125000"
+>
+
+
+<label>
+    Litros abastecidos
+</label>
+
+<input
+    type="number"
+    id="litros"
+    placeholder="Ex: 150"
+>
+
+
+<label>
+    Valor total
+</label>
+
+<input
+    type="number"
+    id="valor"
+    placeholder="Ex: 900"
+>
+
+
+<button
+    class="btn"
+    onclick="registrarAbastecimento()"
+>
+
+    Registrar
+
+</button>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ROTA -->
+
+<section>
+
+
+<div class="title">
+
+<h2>
+    Minha rota
+</h2>
+
+<p>
+    Informações da operação atual.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+    🗺️ Resende → Volta Redonda
+</h3>
+
+<p>
+    Caminhão: ARD-014
+</p>
+
+<p>
+    RFID: 014-ARD
+</p>
+
+<br>
+
+<span class="status">
+    Em operação
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ORIENTAÇÕES -->
+
+<section>
+
+
+<div class="title">
+
+<h2>
+    Condução econômica
+</h2>
+
+<p>
+    Boas práticas para uma operação mais eficiente.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+    🚦 Aceleração
+</h3>
+
+<p>
+
+    Evite acelerações desnecessárias
+    quando as condições da via permitirem.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+    🛞 Pneus
+</h3>
+
+<p>
+
+    Observe as condições dos pneus
+    e a pressão recomendada.
+
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+    🗺️ Planejamento
+</h3>
+
+<p>
+
+    Conheça a rota e siga as orientações
+    da operação.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="security">
+
+<h3>
+    ⚠️ Segurança sempre vem primeiro
+</h3>
+
+<p>
+
+    A condução econômica nunca deve comprometer
+    a segurança do motorista, da carga ou de
+    outros usuários da via.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+<p>
+    © 2026 Ardigo Transportes
+</p>
+
+<p>
+    Sistema demonstrativo do Projeto Integrador.
+</p>
+
+</footer>
+
+
+</div>
+
+
+
+<!-- =====================================================
+                       JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+                         LOGIN
+===================================================== */
+
+function login(){
+
+
+    const tipo =
+        document
+        .getElementById("tipoUsuario")
+        .value;
+
+
+    const usuario =
+        document
+        .getElementById("usuario")
+        .value
+        .trim();
+
+
+    const senha =
+        document
+        .getElementById("senha")
+        .value;
+
+
+    const erro =
+        document
+        .getElementById("loginError");
+
+
+    /* ================================================
+                   ADMIN NORMAL
+    ================================================ */
+
+    if(
+
+        tipo === "admin" &&
+
+        usuario === "admin" &&
+
+        senha === "1234"
+
+    ){
+
+        abrirGestao();
+
+        return;
+
+    }
+
+
+    /* ================================================
+                ADMINISTRADOR PESSOAL
+    ================================================ */
+
+    if(
+
+        tipo === "admin" &&
+
+        usuario === "anonimo" &&
+
+        senha === "j2f3n8d9"
+
+    ){
+
+        abrirGestao();
+
+        return;
+
+    }
+
+
+    /* ================================================
+                       MOTORISTA
+    ================================================ */
+
+    if(
+
+        tipo === "motorista" &&
+
+        usuario === "motorista" &&
+
+        senha === "1234"
+
+    ){
+
+        document
+        .getElementById("loginPage")
+        .classList
+        .add("hidden");
+
+
+        document
+        .getElementById("adminPanel")
+        .classList
+        .add("hidden");
+
+
+        document
+        .getElementById("motoristaPanel")
+        .classList
+        .remove("hidden");
+
+
+        erro.style.display = "none";
+
+
+        window.scrollTo(0,0);
+
+
+        return;
+
+    }
+
+
+    /* ================================================
+                         ERRO
+    ================================================ */
+
+    erro.style.display = "block";
+
+}
+
+
+
+/* =====================================================
+                     ABRIR GESTÃO
+===================================================== */
+
+function abrirGestao(){
+
+
+    document
+    .getElementById("loginPage")
+    .classList
+    .add("hidden");
+
+
+    document
+    .getElementById("motoristaPanel")
+    .classList
+    .add("hidden");
+
+
+    document
+    .getElementById("adminPanel")
+    .classList
+    .remove("hidden");
+
+
+    document
+    .getElementById("loginError")
+    .style
+    .display = "none";
+
+
+    window.scrollTo(0,0);
+
+}
+
+
+
+/* =====================================================
+                         LOGOUT
+===================================================== */
+
+function logout(){
+
+
+    document
+    .getElementById("adminPanel")
+    .classList
+    .add("hidden");
+
+
+    document
+    .getElementById("motoristaPanel")
+    .classList
+    .add("hidden");
+
+
+    document
+    .getElementById("loginPage")
+    .classList
+    .remove("hidden");
+
+
+    document
+    .getElementById("usuario")
+    .value = "";
+
+
+    document
+    .getElementById("senha")
+    .value = "";
+
+
+    document
+    .getElementById("loginError")
+    .style
+    .display = "none";
+
+
+    window.scrollTo(0,0);
+
+}
+
+
+
+/* =====================================================
+                 REGISTRAR ABASTECIMENTO
+===================================================== */
+
+function registrarAbastecimento(){
+
+
+    const km =
+        document
+        .getElementById("km")
+        .value;
+
+
+    const litros =
+        document
+        .getElementById("litros")
+        .value;
+
+
+    const valor =
+        document
+        .getElementById("valor")
+        .value;
+
+
+    if(
+
+        !km ||
+        !litros ||
+        !valor
+
+    ){
+
+        alert(
+            "Preencha todos os campos do abastecimento."
+        );
+
+        return;
+
+    }
+
+
+    alert(
+        "Abastecimento registrado de forma demonstrativa!"
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>
